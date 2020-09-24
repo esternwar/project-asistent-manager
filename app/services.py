@@ -29,10 +29,10 @@ def property():
         return jsonify(props)
     elif request.method == 'POST':
         data = request.json
-        res = PrioritySchema.createProperty(data['title'])
+        res = PrioritySchema.createProperty(data['title'], data['order'])
     elif request.method == 'PUT':
         data = request.json
-        res = PrioritySchema.updateProperty(data['id'], data['title'])
+        res = PrioritySchema.updateProperty(data['id'], data['title'], data['order'])
     elif request.method == 'DELETE':
         id = request.args.get('id')
         res = PrioritySchema.removeProperty(id)
